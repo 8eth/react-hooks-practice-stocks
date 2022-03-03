@@ -1,11 +1,26 @@
 import React from "react";
 import Stock from "./Stock";
 
-function StockContainer() {
+function StockContainer({stocks, onAddStock}) {
+  const stockCompArr = stocks.map(stocks => (
+    <Stock 
+      key={stocks.id}
+      stocks={stocks}
+      callbackFn={onAddStock}
+    />
+  ))
+
   return (
     <div>
       <h2>Stocks</h2>
-      {/* render stock list here*/}
+      {stockCompArr}
+      {/* {stocks.map((stocks) => (
+        <Stock 
+          key={stocks.id}
+          stocks={stocks}
+          callbackFn={buy}
+        />
+      ))} */}
     </div>
   );
 }
